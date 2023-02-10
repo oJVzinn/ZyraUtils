@@ -1,0 +1,43 @@
+plugins {
+    id 'java'
+}
+
+group 'dev.ojvzinn'
+version '1.0'
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+    //Repositório Spigot
+    maven {
+        url 'https://repo.codemc.org/repository/nms/'
+    }
+
+    //Reposítorio Bungee
+    maven {
+        url 'https://papermc.io/repo/repository/maven-public/'
+    }
+}
+
+dependencies {
+    compileOnly 'org.spigotmc:spigot:1.8.8-R0.1-SNAPSHOT'
+    compileOnly 'io.github.waterfallmc:waterfall-api:1.18-R0.1-SNAPSHOT'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.0'
+    implementation files('C:/Users/joaov/Desktop/kCore.jar')
+    implementation files('C:/Users/joaov/Desktop/kCosmetics.jar')
+}
+
+test {
+    useJUnitPlatform()
+}
+
+jar {
+    archiveFileName = 'zUtils.jar'
+}
+
+compileJava.options.encoding("UTF-8")
+
+tasks.withType(JavaCompile) {
+    options.encoding("UTF-8")
+}
